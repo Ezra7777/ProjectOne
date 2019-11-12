@@ -1,3 +1,4 @@
+import javax.print.DocFlavor;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -15,8 +16,7 @@ public class ProjectOne {
     public char[] getChars(String number) {
         char[] eachWord = {};
         // write your code here
-
-
+        eachWord=number.toCharArray();
         // end of code
         return eachWord;
     }
@@ -27,10 +27,7 @@ public class ProjectOne {
      */
     public String[] getWords(String sentence) {
         String[] eachWord = {};
-        // write your code here
-
-
-        // end of code
+         eachWord=sentence.split(" ");
         return eachWord;
     }
 
@@ -42,10 +39,11 @@ public class ProjectOne {
      */
     public int total(ArrayList<Integer> myList) {
         int total = Integer.MIN_VALUE;
-        // write your code here
+         total=0;
+         for(int i:myList ){
+           total +=i;
+      }
 
-
-        // end of code
         return total;
     }
 
@@ -58,10 +56,11 @@ public class ProjectOne {
      */
     public int evenTotal(ArrayList<Integer> myList) {
         int total = 0;
-        // write your code here
-
-
-        // end of code
+       for(int i:myList){
+           if(i%2==0){
+               total +=i;
+           }
+       }
         return total;
     }
 
@@ -74,10 +73,11 @@ public class ProjectOne {
      */
     public int oddTotal(ArrayList<Integer> myList) {
         int total = 0;
-        // write your code here
-
-
-        // end of code
+        for (int i : myList) {
+            if (i % 2 != 0) {
+                total += i;
+            }
+        }
         return total;
     }
 
@@ -86,22 +86,16 @@ public class ProjectOne {
      */
     public String getUpperCase(String name) {
         String upperCaseName = null;
-        // write your code here
+       upperCaseName=name.toUpperCase();
 
-
-        // end of code
         return upperCaseName;
     }
 
-    /**
-     * Make the name lower case
-     */
+
     public String getLowerCase(String name) {
         String lowerCaseName = null;
-        // write your code here
+        lowerCaseName=name.toLowerCase();
 
-
-        // end of code
         return lowerCaseName;
     }
 
@@ -111,10 +105,7 @@ public class ProjectOne {
      */
     public String convertToString(int number) {
         String result = "";
-        // write your code here
-
-
-        // end of code
+        result=String.valueOf(number);
         return result;
     }
 
@@ -124,10 +115,8 @@ public class ProjectOne {
      */
     public String getFirst3Letters(String word) {
         String result = null;
-        // write your code here
+        result = word.substring(0,3);
 
-
-        // end of code
         return result;
     }
 
@@ -137,10 +126,8 @@ public class ProjectOne {
      */
     public String getLast2Letters(String word) {
         String result = "";
-        // write your code here
+        result = word.substring((word.length() - 2), (word.length() - 1));
 
-
-        // end of code
         return result;
     }
 
@@ -150,10 +137,9 @@ public class ProjectOne {
      */
     public boolean compareIntAndString(int a, String b) {
         boolean result = false;
-        // write your code here
-
-
-        // end of code
+        if (b.equals(String.valueOf(a))) {
+            result = true;
+        }
         return result;
     }
 
@@ -162,10 +148,8 @@ public class ProjectOne {
      */
     public String removeWhiteSpacesAround(String str) {
         String result = null;
-        // write your code here
+      result=str.trim();
 
-
-        // end of code
         return result;
     }
 
@@ -175,10 +159,9 @@ public class ProjectOne {
      */
     public List<Integer> multipliedBy2(List<Integer> numbers) {
         List<Integer> result = new ArrayList<>();
-        // write your code here
-
-
-        // end of code
+        for(int i:numbers){
+            result.add((i)*2);
+        }
         return result;
     }
 
@@ -188,10 +171,9 @@ public class ProjectOne {
      */
     public List<String> doubledWord(List<String> words) {
         List<String> result = new ArrayList<>();
-        // write your code here
-
-
-        // end of code
+        for (String s: words) {
+            result.add(s + s);
+        }
         return result;
     }
 
@@ -200,10 +182,22 @@ public class ProjectOne {
      */
     public boolean hasDuplicates(Character[] characters) {
         boolean result = false;
-        // write your code here
 
+        HashSet<Character> hashSet = new HashSet<>();
+        for (char x: characters) {
+            hashSet.add(x);
+        }
 
-        // end of code
+        if (hashSet.size() == characters.length) {
+            result = false;
+        }
+        else if (hashSet.size() != characters.length) {
+            result = true;
+        }
+        else if (hashSet.isEmpty()) {
+            result = false;
+        }
+
         return result;
     }
 
